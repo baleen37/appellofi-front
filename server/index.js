@@ -10,7 +10,7 @@ const host = process.env.HORT || 'localhost';
 const isDev = process.env.NODE_ENV !== 'production';
 
 require('./middlewares/front-end-middlewares')(app, {
-    outputPath: __dirname + '/dist'
+    outputPath: process.cwd() + '/dist'
 });
 
 app.get('*', (req, res) => res.sendFile(path.resolve(process.cwd() + '/app', 'index.html')));

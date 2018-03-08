@@ -10,7 +10,7 @@ const plugins = [
 module.exports = webpackBaseConfig({
     entry: [
         'webpack-hot-middleware/client?reload=true',
-        path.join(process.cwd(), './app/app.js'),
+        path.join(process.cwd(), './app/app.js')
     ],
     output: {
         filename: '[name].js',
