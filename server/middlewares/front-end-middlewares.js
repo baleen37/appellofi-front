@@ -1,15 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
-
+/* eslint-disable global-require */
 module.exports = (app, options) => {
-    let isProduction = process.env.NODE_ENV === 'production';
+  const isProduction = process.env.NODE_ENV === 'production';
 
-    if (isProduction) {
-    } else {
-        const webpackConfig = require('../../internals/webpack/webpack.dev.config');
-        const addDevMiddlewares = require('./dev-middlewares');
-        addDevMiddlewares(app, webpackConfig);
-    }
+  if (isProduction) {
+  } else {
+    const webpackConfig = require('../../internals/webpack/webpack.dev.config');
+    const addDevMiddlewares = require('./dev-middlewares');
+    addDevMiddlewares(app, webpackConfig);
+  }
 
-    return app
+  return app;
 };

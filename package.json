@@ -6,7 +6,10 @@
   "author": "baleen37 <baleen37@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development node server"
+    "start": "NODE_ENV=development node server",
+    "eslint": "./node_modules/eslint/bin/eslint.js . ",
+    "test": "NODE_ENV=test jest --coverage",
+    "test:watch": "NODE_ENV=test jest --coverage --watchAll"
   },
   "dependencies": {
     "babel": "^6.23.0",
@@ -16,14 +19,29 @@
     "html-webpack-plugin": "^3.0.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "webpack": "^4.1.1",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-hot-middleware": "^2.21.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "html-loader": "^0.5.5",
-    "webpack": "^4.1.0"
+    "jest": "^22.4.2",
+    "regenerator-runtime": "^0.11.1"
+  },
+  "jest": {
+    "setupFiles": ["./internals/testing/jestsetup.js"]
+
   }
 }
