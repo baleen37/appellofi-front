@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './containers/App/index';
+import App from './containers/App';
 
 
 const MOUNT_NODE = document.getElementById('app');

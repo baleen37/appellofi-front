@@ -6,7 +6,7 @@ import PlayerView from '../../../components/PlayerView';
 
 describe('<HomePage>', () => {
   it('should render <PlayerView>', () => {
-    const component = shallow(<HomePage />);
-    expect(component.find(PlayerView).length).toBe(1);
+    const wrapper = shallow(<HomePage />);
+    expect(wrapper.find(PlayerView).length).toBe(1);
   });
 });

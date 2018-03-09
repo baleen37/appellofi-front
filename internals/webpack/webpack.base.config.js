@@ -1,11 +1,6 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [
-  new HtmlWebpackPlugin({
-    template: `${process.cwd()}/app/index.html`,
-    filename: './index.html',
-  }),
 ];
 
 module.exports = options => ({
