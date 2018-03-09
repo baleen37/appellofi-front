@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlayerView } from '../../components/PlayerView/index';
+import PlayerView from "../../components/PlayerView";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,9 +15,7 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>hi</h1>
-        <PlayerView
-          url={this.state.playerUrl}
-        />
+        <PlayerView url={this.state.playerUrl} />
       </div>
     );
   }
