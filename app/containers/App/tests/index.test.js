@@ -1,11 +1,12 @@
 import React from 'react';
-import App from '../index';
 import { shallow } from 'enzyme';
-import PlayerView from '../../../components/PlayerView';
+
+import App from '../index';
+import HomePage from '../../HomePage';
 
 describe('<App/>', () => {
-  it('should render PlayerView', () => {
+  it('should render HomePage', () => {
     const renderedComponent = shallow(<App />);
-    expect(renderedComponent.find(PlayerView).length).toBe(1);
+    expect(renderedComponent.find(HomePage).length).toBe(1);
   });
 });
