@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import HomePage from '../HomePage';
-import Player from '../../api/soundcloud';
+import PlayerContainer from './PlayerContainer';
 
 export class App extends React.Component {
   componentDidMount() {
@@ -12,7 +11,7 @@ export class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={PlayerContainer} />
       </Router>
     );
   }

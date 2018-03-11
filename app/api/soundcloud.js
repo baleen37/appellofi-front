@@ -9,6 +9,6 @@ SC.initialize({
 
 export default {
   stream: trackId => SC.stream(`/tracks/${trackId}`),
-  fetchFavoritesTracks: userId => SC.get(`/users/${userId}/favorites`),
+  fetchTracksOfUser: userId => SC.get(`/users/${userId}/favorites`),
 };
 

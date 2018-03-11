@@ -13,6 +13,7 @@ require('./middlewares/front-end-middlewares')(app, {
   outputPath: `${process.cwd()}/dist`,
 });
 
+app.use('/static', express.static(`${process.cwd()}/public`));
 app.get('*', (req, res) => res.sendFile(path.resolve(`${process.cwd()}/app`, 'index.html')));
 
 app.listen(port, host, (err) => {

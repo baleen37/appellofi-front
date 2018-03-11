@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
-import tracks from './tracks';
+import playlist from './playlist';
+import entities from './entities';
 
 const reducers = combineReducers({
-  tracks,
+  entities,
+  playlist,
 });
 
 export default reducers;
+
