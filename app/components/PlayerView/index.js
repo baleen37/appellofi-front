@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class PlayerView extends React.Component {
-  constructor(props) {
-    super(props);
+const PlayerView = ({ url }) => (
+  <img src={url} />
+);
 
-    this.state = { url: props.url };
-  }
+PlayerView.propTypes = {
+  url: PropTypes.string.isRequired,
+};
 
-  render() {
-    return (
-      <img src={this.state.url} />
-    );
-  }
-}
+export default PlayerView;

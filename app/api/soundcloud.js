@@ -2,11 +2,13 @@ import SC from 'soundcloud';
 import Authentication from '../constatns/authentication';
 
 SC.initialize({
-  client_id: Authentication,
+  client_id: Authentication.SOUND_CLOUD_CLIENT_ID,
+  redirect_uri: 'http://example.com/callback',
 });
 
 
 export default {
   stream: trackId => SC.stream(`/tracks/${trackId}`),
+  fetchFavoritesTracks: userId => SC.get(`/users/${userId}/favorites`),
 };
 

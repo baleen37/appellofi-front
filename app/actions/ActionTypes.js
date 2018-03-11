@@ -1,0 +1,4 @@
+export default {
+  FETCH_TRACKS: 'FETCH_TRACKS',
+  RECEIVE_TRACKS: 'RECEIVE_TRACKS',
+};

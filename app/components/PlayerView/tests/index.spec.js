@@ -1,6 +1,6 @@
 import React from 'react';
-import PlayerView from '../index';
 import { shallow } from 'enzyme';
+import PlayerView from '../index';
 
 describe('<PlayerView>', () => {
   it('should render the header', () => {

@@ -1,20 +1,20 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import PlayerView from '../../components/PlayerView';
+import { getTracks } from '../../reducers/tracks';
 
-export default class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-    const playerUrl = 'https://giphy.com/gifs/80s-1980s-anime-V5qXaUBISlbTa';
-    this.state = {
-      playerUrl,
-    };
-  }
 
-  render() {
-    return (
-      <Fragment>
-        <PlayerView url={this.state.playerUrl} />
-      </Fragment>
-    );
-  }
-}
+const HomePage = ({ tracks }) => {
+  return (<PlayerView url="" />);
+};
+
+HomePage.propTypes = {
+  tracks: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = state => ({
+  tracks: getTracks(state.tracks),
+});
+export default connect(mapStateToProps)(HomePage);
+

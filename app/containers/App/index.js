@@ -1,17 +1,21 @@
-import React from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import HomePage from '../HomePage';
+import Player from '../../api/soundcloud';
 
-export default class App extends React.Component {
+export class App extends React.Component {
   componentDidMount() {
   }
 
   render() {
     return (
-      <Switch>
+      <Router>
         <Route exact path="/" component={HomePage} />
-      </Switch>
+      </Router>
     );
   }
 }
+
+export default connect()(App);
