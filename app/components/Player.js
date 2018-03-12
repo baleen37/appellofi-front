@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import audio from './audio';
 
-const Player = ({ tracks }) => {
-  console.log('tracks', tracks[0].id);
-  return (<h1>{tracks[0].id}</h1>);
-};
+class Player extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('player', props);
+  }
+
+  render() {
+    return (<h1 />);
+  }
+}
 
 Player.propTypes = {
-  tracks: PropTypes.array.isRequired,
 };
 
-export default Player;
+export default audio(Player);

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import playlist from './playlist';
+import player from './player';
 import entities from './entities';
 
 const reducers = combineReducers({
   entities,
-  playlist,
+  player,
 });
 
 export default reducers;

@@ -1,7 +1,7 @@
 import types from '../constants/ActionTypes';
 import soundcloud from '../api/soundcloud';
-import { setPlaylist } from './PlaylistActions';
-import { shuffle } from '../utils/util';
+import { playSong } from './PlayerActions';
+import { shuffle } from '../utils/common';
 
 const fetchTracksSuccess = tracks => ({
   type: types.RECEIVE_TRACKS,
@@ -18,5 +18,5 @@ export const fetchTracks = userId => async (dispatch) => {
   dispatch(fetchTracksSuccess(tracks));
 
   const playlist = shuffle(tracks.map(track => track.id));
-  dispatch(setPlaylist(playlist));
+  dispatch(playSong(playlist, 0));
 };

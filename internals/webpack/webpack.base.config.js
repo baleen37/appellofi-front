@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const plugins = [
+  new webpack.EnvironmentPlugin(['NODE_ENV']),
 ];
 
 module.exports = options => ({

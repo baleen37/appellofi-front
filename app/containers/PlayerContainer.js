@@ -1,21 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getPlaylist } from '../selectors/PlaylistSelectors';
+import { getCurrentTrack } from '../selectors/PlayerSelectors';
+import { playSong } from '../actions/PlayerActions';
 import Player from '../components/Player';
 
 
 const PlayerContainer = (props) => {
-  const { tracks } = props;
-  return tracks ? <Player {...props} /> : null;
+  const { track } = props;
+  return track ? <Player {...props} /> : null;
+};
+
+PlayerContainer.defaultProps = {
+  track: null,
 };
 
 PlayerContainer.propTypes = {
-  tracks: PropTypes.array.isRequired,
+  player: PropTypes.shape({}).isRequired,
+  track: PropTypes.shape({}),
 };
 
-const mapStateToProps = state => ({
-  tracks: getPlaylist(state),
-});
-export default connect(mapStateToProps)(PlayerContainer);
+const mapStateToProps = (state) => {
+  const { player } = state;
+  return {
+    player,
+    track: getCurrentTrack(state),
+  };
+};
+export default connect(
+  mapStateToProps,
+  {
+    playSong,
+  },
+)(PlayerContainer);
 

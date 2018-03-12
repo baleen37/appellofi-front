@@ -1,5 +1,5 @@
 import SC from 'soundcloud';
-import Authentication from '../constatns/authentication';
+import Authentication from '../constants/authentication';
 
 SC.initialize({
   client_id: Authentication.SOUND_CLOUD_CLIENT_ID,
