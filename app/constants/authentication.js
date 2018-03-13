@@ -1,0 +1,5 @@
+const SOUND_CLOUD_CLIENT_ID = 'THGmkxKSNGqO5hYOwMBbbAM5t3hCn91E';
+
+export default {
+  SOUND_CLOUD_CLIENT_ID,
+};
