@@ -16,4 +16,6 @@ module.exports = function addDevMiddlewares(app, webpackConfig) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+
+  app.get('*', (req, res) => res.sendFile(path.resolve(`${process.cwd()}/app`, 'index.html')));
 };

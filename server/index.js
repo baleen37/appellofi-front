@@ -7,14 +7,11 @@ const app = express();
 const port = process.env.PORT || '3000';
 const host = process.env.HORT || 'localhost';
 
-const isDev = process.env.NODE_ENV !== 'production';
-
 require('./middlewares/front-end-middlewares')(app, {
   outputPath: `${process.cwd()}/dist`,
+  publicPath: '/',
 });
 
-app.use('/static', express.static(`${process.cwd()}/public`));
-app.get('*', (req, res) => res.sendFile(path.resolve(`${process.cwd()}/app`, 'index.html')));
 
 app.listen(port, host, (err) => {
   logger.log(`express start ${host}:${port}`);

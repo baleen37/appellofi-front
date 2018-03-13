@@ -5,7 +5,10 @@ const plugins = [
 ];
 
 module.exports = options => ({
-  entry: options.entry,
+  entry: [
+    'babel-polyfill',
+    ...options.entry,
+  ],
   output: Object.assign({
     path: path.resolve(process.cwd(), 'dist'),
     publicPath: '/',

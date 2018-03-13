@@ -18,7 +18,6 @@ const plugins = [
 
 module.exports = webpackBaseConfig({
   entry: [
-    'babel-polyfill',
     'webpack-hot-middleware/client?reload=true',
     path.join(process.cwd(), 'app/app.js'),
   ],
