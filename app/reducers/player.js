@@ -3,7 +3,7 @@ import ActionTypes from '../constants/ActionTypes';
 
 const initialState = {
   playlist: [],
-  playIndex: null,
+  playIndex: 0,
 };
 
 const player = (state = initialState, action) => {
@@ -14,6 +14,16 @@ const player = (state = initialState, action) => {
         playlist: action.playlist,
         playIndex: action.playIndex,
       };
+    case ActionTypes.PLAY_NEXT_SONG: {
+      let index = state.playIndex + 1;
+      if (index > state.playlist.size) {
+        index = 0;
+      }
+      return {
+        ...state,
+        playIndex: index,
+      };
+    }
     default:
       return state;
   }

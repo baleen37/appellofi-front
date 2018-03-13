@@ -14,10 +14,10 @@ export const onPause = () => ({
   type: ActionTypes.PLAYER_PAUSE,
 });
 
-export const onPlayNextSongs = () => ({
-  type: ActionTypes.PLAYER_NEXT_SONGS,
+export const onPlayNextSong = () => ({
+  type: ActionTypes.PLAY_NEXT_SONG,
 });
 
-export const onPlayPrevSongs = () => ({
-  type: ActionTypes.PLAYER_PREV_SONGS,
-});
+export const playNextSong = () => async (dispatch) => {
+  dispatch(onPlayNextSong());
+};

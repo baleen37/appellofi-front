@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 
 const plugins = [
-  new webpack.EnvironmentPlugin(['NODE_ENV']),
 ];
 
 module.exports = options => ({
@@ -20,6 +19,34 @@ module.exports = options => ({
         use: {
           loader: 'babel-loader',
         },
+      },
+
+      {
+        test: /\.css|\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
+      {
+        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]-[hash:8].[ext]',
+            },
+          },
+        ],
       },
       {
         test: /\.html$/,

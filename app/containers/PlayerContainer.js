@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { getCurrentTrack } from '../selectors/PlayerSelectors';
-import { playSong } from '../actions/PlayerActions';
+import {getCurrentTrack} from '../selectors/PlayerSelectors';
 import Player from '../components/Player';
 
 
@@ -27,10 +26,5 @@ const mapStateToProps = (state) => {
     track: getCurrentTrack(state),
   };
 };
-export default connect(
-  mapStateToProps,
-  {
-    playSong,
-  },
-)(PlayerContainer);
+export default connect(mapStateToProps)(PlayerContainer);
 

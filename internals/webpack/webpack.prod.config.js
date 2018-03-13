@@ -5,6 +5,9 @@ const webpackBaseConfig = require('./webpack.base.config');
 const plugins = [
   new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
   new webpack.NoEmitOnErrorsPlugin(),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  }),
 ];
 
 module.exports = webpackBaseConfig({
