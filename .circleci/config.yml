@@ -9,7 +9,9 @@ jobs:
       - setup_remote_docker
 
       - restore_cache:
-          key: v1-pip
+          keys:
+            - v1-{{ .Branch }}
+            - v1-
       - run:
           name: Install dependencies
           command: |
@@ -18,9 +20,9 @@ jobs:
             pip install \
               docker-compose==1.12.0
       - save_cache:
-          key: v1-pip
+          key: v1-{{ .Branch }}
           paths:
-            - /caches/pip
+            - ~/.cache/pip
 
       - restore_cache:
           keys:
