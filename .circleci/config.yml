@@ -7,6 +7,11 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+
+      - restore_cache:
+          keys:
+            - v1-{{ .Branch }}
+            - v1-
       - run:
           name: Install dependencies
           command: |
@@ -14,9 +19,15 @@ jobs:
               py-pip=9.0.0-r1
             pip install \
               docker-compose==1.12.0
+      - save_cache:
+          key: v1-{{ .Branch }}
+          paths:
+            - ~/.cache/pip
+
       - restore_cache:
           keys:
-            - v1-{{ .Branch }}
+           - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
+           - docker-{{ checksum "Dockerfile" }}
           paths:
             - /caches/app.tar
       - run:
@@ -34,9 +45,10 @@ jobs:
             mkdir -p /caches
             docker save -o /caches/app.tar app
       - save_cache:
-          key: v1-{{ .Branch }}-{{ epoch }}
+          key: docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
           paths:
             - /caches/app.tar
+
       - run:
           name: Run tests
           command: |
@@ -45,6 +57,7 @@ jobs:
           name: Push application Docker image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS";
               docker tag app "baleen37/appellofi-front:${CIRCLE_SHA1}"
               docker push "baleen37/appellofi-front:${CIRCLE_SHA1}"
             fi
