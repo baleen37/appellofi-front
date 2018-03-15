@@ -43,8 +43,7 @@ jobs:
             mkdir -p /caches
             docker save -o /caches/app.tar app
       - save_cache:
-          keys:
-            - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
+          key: docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
           paths:
             - /caches/app.tar
 
