@@ -14,7 +14,7 @@
     "build:webpack": "NODE_ENV=production webpack -p --config ./internals/webpack/webpack.prod.config.js  --color -p --progress --hide-modules --display-optimization-bailout",
     "build:clean": "rimraf ./build",
     "serve": "NODE_ENV=production node server",
-    "test": "NODE_ENV=test yarn jest --coverage",
+    "test": "NODE_ENV=test yarn run jest --ci",
     "test:watch": "NODE_ENV=test jest --coverage --watchAll"
   },
   "dependencies": {
