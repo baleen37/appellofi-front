@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+
+      - restore_cache:
+          key:
+           - v1
       - run:
           name: Install dependencies
           command: |
@@ -14,9 +18,14 @@ jobs:
               py-pip=9.0.0-r1
             pip install \
               docker-compose==1.12.0
+      - save_cache:
+          key:
+          - v1
+
       - restore_cache:
-          keys:
-            - v1
+          key:
+           - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
+           - docker-{{ checksum "Dockerfile" }}
           paths:
             - /caches/app.tar
       - run:
@@ -34,9 +43,11 @@ jobs:
             mkdir -p /caches
             docker save -o /caches/app.tar app
       - save_cache:
-          key: v1-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
+          key:
+          - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
           paths:
             - /caches/app.tar
+
       - run:
           name: Run tests
           command: |
