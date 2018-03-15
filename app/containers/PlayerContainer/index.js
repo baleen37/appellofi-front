@@ -5,7 +5,7 @@ import {getCurrentTrack} from '../../selectors/PlayerSelectors';
 import Player from '../../components/Player/index';
 
 
-const PlayerContainer = (props) => {
+export const PlayerContainer = (props) => {
   const { track } = props;
   return track ? <Player {...props} /> : null;
 };

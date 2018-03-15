@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.scss';
 import backgroundImage from '../../images/bg.gif';
 
-const TrackViewer = (props) => {
+export const TrackViewer = (props) => {
   const { track } = props;
   if (!track) {
     return (<div />);

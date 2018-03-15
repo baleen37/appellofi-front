@@ -1,3 +1,4 @@
+
 module.exports = {
   "extends": "airbnb",
   "env": {
@@ -6,4 +7,9 @@ module.exports = {
     "jest": true,
     "es6": true,
   },
+  "globals": {
+    "shallow": true,
+    "mount": true,
+    "render": true,
+  }
 };

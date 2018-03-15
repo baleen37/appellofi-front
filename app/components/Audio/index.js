@@ -8,7 +8,7 @@ const propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const audio = (InnerComponent) => {
+export const audio = (InnerComponent) => {
   class AudioComponent extends React.Component {
     constructor(props) {
       super(props);
@@ -60,8 +60,8 @@ const audio = (InnerComponent) => {
       dispatch(PlayerActions.onPlayNextSong());
     }
 
-    handleAudioError(error) {
-      console.log('onAudioError', error);
+    handleAudioError() {
+      this.play();
     }
 
     render() {

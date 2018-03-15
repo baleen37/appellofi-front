@@ -1,7 +1,7 @@
 import React from 'react';
 import Audio from '../Audio/index';
 
-class Player extends React.Component {
+export class Player extends React.Component {
   constructor(props) {
     super(props);
   }

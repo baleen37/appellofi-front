@@ -5,7 +5,7 @@ import PlayerContainer from '../PlayerContainer/index';
 import Dashboard from '../../components/Dashboard/index';
 import { getCurrentTrack } from '../../selectors/PlayerSelectors';
 
-const DashboardContainer = props => <Dashboard {...props} />;
+export const DashboardContainer = props => <Dashboard {...props} />;
 
 PlayerContainer.propTypes = {
   track: PropTypes.shape({}),
