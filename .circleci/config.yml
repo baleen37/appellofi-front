@@ -6,9 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: baleen37/appellofi
-
-    working_directory: ~/repo
+      - image: baleen37/appellofi-front
 
     steps:
       - checkout
