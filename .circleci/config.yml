@@ -10,7 +10,7 @@ jobs:
 
       - restore_cache:
           key:
-           - v1
+             - v1
       - run:
           name: Install dependencies
           command: |
@@ -20,12 +20,12 @@ jobs:
               docker-compose==1.12.0
       - save_cache:
           key:
-          - v1
+            - v1
 
       - restore_cache:
           key:
-           - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
-           - docker-{{ checksum "Dockerfile" }}
+             - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
+             - docker-{{ checksum "Dockerfile" }}
           paths:
             - /caches/app.tar
       - run:
@@ -44,7 +44,7 @@ jobs:
             docker save -o /caches/app.tar app
       - save_cache:
           key:
-          - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
+            - docker-{{ checksum "Dockerfile" }}-{{ checksum "package.json" }}
           paths:
             - /caches/app.tar
 
