@@ -16,7 +16,7 @@ jobs:
               docker-compose==1.12.0
       - restore_cache:
           keys:
-            - v1-{{ .Branch }}
+            - v1
           paths:
             - /caches/app.tar
       - run:
@@ -49,4 +49,3 @@ jobs:
               docker tag app "baleen37/appellofi-front:${CIRCLE_SHA1}"
               docker push "baleen37/appellofi-front:${CIRCLE_SHA1}"
             fi
-
