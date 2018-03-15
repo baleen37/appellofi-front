@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SC from '../api/soundcloud';
-import * as PlayerActions from '../actions/PlayerActions';
+import SC from '../../api/soundcloud';
+import * as PlayerActions from '../../actions/PlayerActions';
 
 const propTypes = {
   track: PropTypes.shape({}),

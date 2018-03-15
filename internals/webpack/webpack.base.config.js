@@ -2,6 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 const plugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+    },
+  }),
 ];
 
 module.exports = options => ({
@@ -14,18 +19,29 @@ module.exports = options => ({
     publicPath: '/',
   }, options.output),
   plugins: plugins.concat(options.plugins),
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   module: {
     rules: [
       {
-        test: /\.js$/, // Transform all .js files required somewhere with Babel
+        test: /\.(js|jsx)$/, // Transform all .js files required somewhere with Babel
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
       },
-
       {
-        test: /\.css|\.scss$/,
+        test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
           {

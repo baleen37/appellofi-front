@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../styles/TrackViewer.scss';
-import backgroundImage from '../images/bg.gif';
+import styles from './styles.scss';
+import backgroundImage from '../../images/bg.gif';
 
 const TrackViewer = (props) => {
   const { track } = props;

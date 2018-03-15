@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {getCurrentTrack} from '../selectors/PlayerSelectors';
-import Player from '../components/Player';
+import {getCurrentTrack} from '../../selectors/PlayerSelectors';
+import Player from '../../components/Player/index';
 
 
 const PlayerContainer = (props) => {

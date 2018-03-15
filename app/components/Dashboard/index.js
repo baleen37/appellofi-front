@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TrackViewer from './TrackViewer';
+import TrackViewer from '../TrackViewer/index';
 
 class Dashboard extends React.Component {
   render() {

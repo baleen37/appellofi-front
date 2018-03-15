@@ -1,5 +1,5 @@
 import React from 'react';
-import audio from './audio';
+import Audio from '../Audio/index';
 
 class Player extends React.Component {
   constructor(props) {
@@ -14,4 +14,4 @@ class Player extends React.Component {
 Player.propTypes = {
 };
 
-export default audio(Player);
+export default Audio(Player);

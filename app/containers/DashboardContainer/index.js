@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import PlayerContainer from './PlayerContainer';
-import Dashboard from '../components/Dashboard';
-import { getCurrentTrack } from '../selectors/PlayerSelectors';
+import PlayerContainer from '../PlayerContainer/index';
+import Dashboard from '../../components/Dashboard/index';
+import { getCurrentTrack } from '../../selectors/PlayerSelectors';
 
 const DashboardContainer = props => <Dashboard {...props} />;
 

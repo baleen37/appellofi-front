@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 const port = process.env.PORT || '3000';
-const host = process.env.HORT || '0.0.0.0';
+const host = process.env.HORT || 'localhost';
 
 require('./middlewares/front-end-middlewares')(app, {
   outputPath: `${process.cwd()}/dist`,
