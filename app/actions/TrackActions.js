@@ -14,7 +14,24 @@ const fetchTracksSuccess = tracks => ({
 });
 
 export const fetchTracks = userId => async (dispatch) => {
-  const tracks = await soundcloud.fetchTracksOfUser(userId);
+  const tracks = [];
+
+  // eslint-disable-next-line no-constant-condition
+  let page = 1;
+  const limit = 200;
+  while (true) {
+    const response = await soundcloud.fetchTracksOfUser(userId, { limit: 200, offset: (page - 1) * limit });
+    tracks.push(...response);
+    page += 1;
+    if (response == null || response.length < 1) {
+      break;
+    }
+    // limited request count
+    if (page > 4) {
+      break;
+    }
+  }
+
   dispatch(fetchTracksSuccess(tracks));
 
   const playlist = shuffle(tracks.map(track => track.id));
