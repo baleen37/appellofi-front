@@ -21,6 +21,7 @@ export const fetchTracks = userId => async (dispatch) => {
   const limit = 200;
   while (true) {
     const response = await soundcloud.fetchTracksOfUser(userId, { limit: 200, offset: (page - 1) * limit });
+    tracks.push(...response);
     page += 1;
     if (response == null || response.length < 1) {
       break;
@@ -29,7 +30,6 @@ export const fetchTracks = userId => async (dispatch) => {
     if (page > 4) {
       break;
     }
-    tracks.push(response);
   }
 
   dispatch(fetchTracksSuccess(tracks));
