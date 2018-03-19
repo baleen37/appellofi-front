@@ -60,4 +60,7 @@ jobs:
               docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS";
               docker tag app "baleen37/appellofi-front:${CIRCLE_SHA1}"
               docker push "baleen37/appellofi-front:${CIRCLE_SHA1}"
+
+              docker tag app "baleen37/appellofi-front:latest"
+              docker push "baleen37/appellofi-front:latest"
             fi
