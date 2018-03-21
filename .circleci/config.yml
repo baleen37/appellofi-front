@@ -58,4 +58,4 @@ jobs:
       - deploy:
           name: Push application Docker image
           command: |
-             source .circleci/esc-deploy.sh
+             source .circleci/ecs-deploy.sh
