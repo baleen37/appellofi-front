@@ -57,6 +57,7 @@ jobs:
     docker:
       - image: circleci/awscli:latest
     working_directory: /app
+    steps:
       - run:
           name: Push application Docker image
           command:
