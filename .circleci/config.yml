@@ -53,8 +53,11 @@ jobs:
           name: Run tests
           command: |
             docker-compose -f ./docker-compose.test.yml up
-      - deploy:
+  deploy:
+    working_directory: /app
+      - run:
           name: Push application Docker image
+<<<<<<< Updated upstream
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               CLUSTER='default'
@@ -103,3 +106,16 @@ jobs:
 
               return 0
             fi
+=======
+          command:
+            - .circleci/esc-deploy.sh
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+        - requires:
+          - build
+>>>>>>> Stashed changes
