@@ -4,6 +4,7 @@ jobs:
     working_directory: /app
     docker:
       - image: docker:17.05.0-ce-git
+      - image: circleci/awscli:latest
     steps:
       - checkout
       - setup_remote_docker
@@ -53,21 +54,8 @@ jobs:
           name: Run tests
           command: |
             docker-compose -f ./docker-compose.test.yml up
-  deploy:
-    working_directory: /app
-    docker:
-      - image: circleci/awscli:latest
-    steps:
-      - run:
+
+      - deploy:
           name: Push application Docker image
           command:
             - .circleci/esc-deploy.sh
-
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
-        - requires:
-          - build
