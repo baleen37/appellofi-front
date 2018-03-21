@@ -18,7 +18,7 @@ docker push "baleen37/appellofi-front:${CIRCLE_SHA1}"
 task_template='[
 {
   "name": "%s",
-  "image": "%s.dkr.ecr.%s.amazonaws.com/%s:%s",
+  "image": "baleen37/appellofi-front:%s",
   "essential": true,
   "memoryReservation": 1000,
   "portMappings": [
@@ -33,7 +33,7 @@ task_template='[
 }
 ]'
 echo "$task_template"
-task_def=$(printf "$task_template" $TASK $AWS_ACCOUNT_ID $AWS_REGION $TASK $CIRCLE_SHA1)
+task_def=$(printf "$task_template" ${TASK} ${CIRCLE_SHA1})
 
 # Register task definition
 json=$(aws ecs register-task-definition --container-definitions "$task_def" --family "$FAMILY")
