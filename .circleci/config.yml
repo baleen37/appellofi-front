@@ -58,4 +58,6 @@ jobs:
       - deploy:
           name: Push application Docker image
           command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
              source .circleci/ecs-deploy.sh
+            fi
