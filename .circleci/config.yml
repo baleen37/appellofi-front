@@ -18,7 +18,8 @@ jobs:
             apk add --no-cache \
               py-pip=9.0.0-r1
             pip install \
-              docker-compose==1.12.0
+              docker-compose==1.12.0 \
+              awscli
       - save_cache:
           key: v1-{{ .Branch }}
           paths:
@@ -53,21 +54,10 @@ jobs:
           name: Run tests
           command: |
             docker-compose -f ./docker-compose.test.yml up
-  deploy:
-    working_directory: /app
-    docker:
-      - image: circleci/awscli:latest
-    steps:
-      - run:
-          name: Push application Docker image
-          command:
-            - .circleci/esc-deploy.sh
 
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
       - deploy:
-        - requires:
-          - build
+          name: Push application Docker image
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+             source .circleci/ecs-deploy.sh
+            fi
