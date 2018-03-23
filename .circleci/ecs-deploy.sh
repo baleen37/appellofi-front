@@ -20,11 +20,11 @@ task_template='[
   "name": "%s",
   "image": "baleen37/appellofi-front:%s",
   "essential": true,
-  "memoryReservation": 1000,
+  "memoryReservation": 256,
   "portMappings": [
     {
       "containerPort": 3000,
-      "hostPort": 80
+      "hostPort": 3000
     }
   ],
   "environment" : [
