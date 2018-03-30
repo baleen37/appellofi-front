@@ -20,7 +20,8 @@ task_template='[
   "name": "%s",
   "image": "baleen37/appellofi-front:%s",
   "essential": true,
-  "memoryReservation": 256,
+  "cpu": 128,
+  "memory": 256,
   "portMappings": [
     {
       "containerPort": 3000,
@@ -33,7 +34,7 @@ task_template='[
 }
 ]'
 echo "$task_template"
-task_def=$(printf "$task_template" ${TASK} ${CIRCLE_SHA1})
+task_def=$(printf "$task_template" ${FAMILY} ${TASK} ${CIRCLE_SHA1})
 
 # Register task definition
 json=$(aws ecs register-task-definition --container-definitions "$task_def" --family "$FAMILY")
