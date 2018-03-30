@@ -10,7 +10,7 @@ aws configure set region ${AWS_REGION}
 $(aws ecr get-login)
 
 # Tag and push docker image
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS";
+docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS"
 docker tag app "baleen37/appellofi-front:${CIRCLE_SHA1}"
 docker push "baleen37/appellofi-front:${CIRCLE_SHA1}"
 
@@ -34,7 +34,7 @@ task_template='[
 }
 ]'
 echo "$task_template"
-task_def=$(printf "$task_template" ${FAMILY} ${TASK} ${CIRCLE_SHA1})
+task_def=$(printf "$task_template" ${TASK} ${CIRCLE_SHA1})
 
 # Register task definition
 json=$(aws ecs register-task-definition --container-definitions "$task_def" --family "$FAMILY")

@@ -8,4 +8,5 @@ COPY . /usr/src/app
 
 EXPOSE 3000
 
-CMD ["yarn", "start:production"]
+RUN yarn run build
+CMD ["yarn", "start:prod"]
