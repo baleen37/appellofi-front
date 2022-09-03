@@ -1,44 +1,46 @@
-# appellofi-front 
-[![CircleCI](https://circleci.com/gh/baleen37/appellofi-front/tree/master.svg?style=shield)](https://circleci.com/gh/baleen37/appellofi-front/tree/master)
+# Getting Started with Create React App
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-## Get stared
+In the project directory, you can run:
 
-```bash
-docker build . -t appellofi-front
-docker run --rm -it -p 3000:3000 appellofi-front
-```
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## For development
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `npm test`
 
-#### Using docker
-```
-docker build . -t appellofi-front
-docker run --rm -it -p 3000:3000 appellofi-front yarn start
-```
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### Using yarn
-```
-yarn install
-yarn start
-```
+### `npm run build`
 
-## Testing
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```bash
-docker-compose -f ./docker-compose.test.yml up --build
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Deploying
+### `npm run eject`
 
-We are serving to [docker hub](https://hub.docker.com/r/baleen37/appellofi-front/)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```bash
-docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS";
-docker tag app "baleen37/appellofi-front:${CIRCLE_SHA1}"
-docker push "baleen37/appellofi-front:${CIRCLE_SHA1}"
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
